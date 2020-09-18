@@ -30,3 +30,5 @@ class Solution(object):
 
 s = Solution()
 print(s.permuteUnique([1,1,2]))
+
+#官方题解排序后用used[i-1]来保证相同数字不会被重复填入同一位置，只有最左边的数字会被使用
