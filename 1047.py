@@ -1,3 +1,4 @@
+#方法一
 class Solution(object):
     def removeDuplicates(self, S):
         """
@@ -18,6 +19,20 @@ class Solution(object):
 
     def removeSingleLetter(self, s, index):
         return s[:index]+s[index+2:]
+#方法二
+class Solution(object):
+    def removeDuplicates(self, S):
+        """
+        :type S: str
+        :rtype: str
+        """
+        stack = []
+        for letter in S:
+            if stack and stack[-1] == letter:
+                stack.pop()
+            else:
+                stack.append(letter)
+        return "".join(stack)
 
 test = Solution()
 print(test.removeDuplicates("absdafbaasdfca"))
