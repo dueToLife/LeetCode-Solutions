@@ -15,14 +15,19 @@ class Solution(object):
         leftNode = None
         pre, cur, nex = None, head, head.next
         while cnt <= right:
+            print(cur.val)
             if cnt >= left:
                 cur.next = pre
             if cnt == left:
-                leftNone = cur
+                leftNode = cur
             pre = cur
             cur = nex
             nex = None if cur == None else cur.next
             cnt += 1
-        pre.next = cur
-        leftNode.next = pre
+        if leftNode.next:
+            leftNode.next.next = pre
+        else: #head is changed
+            head = pre
+        leftNode.next = cur
+
         return head
